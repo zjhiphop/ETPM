@@ -1,24 +1,23 @@
 {
   "name"          : "etpm",
-  "version"       : "0.1.1-dev",
+  "version"       : "0.1.6",
   "description"   : "A Package Manager for ET",
   "homepage"      : "https://github.com/zjhiphop/etpm",
   "keywords"      : ["etpm", "module", "package", "optimization", "tool"],
   "author"        : "Jade Zhang <zjhiphop@gmail.com>",
   "contributors"  : ["Jade Zhang <zjhiphop@gmail.com>"],
-  "engines"       : {"node":">= 0.6.3"},
+  "engines"       : {"node":">= 0.5.0 < 0.7.0"},
   "dependencies"  : {
                       "mkdirp": ">=0.0.7" ,
-                      "commander": ">=0.3.2"   
+                      "commander": "0.3.2"  
                     },
   "repository"    : {
                       "type": "git",
                       "url": "git@github.com:zjhiphop/ETPM.git"
                     },
-  "main"          : "./lib/etpm.js",
+  "main"          : "index",
   "bin"           : {
                       "etpm": "./bin/etpm"
                     },
-  "scripts": { "prepublish" : "npm prune" },
   "preferGlobal"  : true
 }
