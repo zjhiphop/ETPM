@@ -261,6 +261,7 @@ var app_build = [
   ,'dir : "../build-client",'
   ,'locale : "en-us",'
   ,'optimize : "uglify",' 
+  ,'modules : ['
   ,'{                                                                                 '
   ,'    name : "script/helper/require-jquery"                                         '
   ,'},                                                                               '
@@ -551,12 +552,13 @@ function createApplicationAt(path) {
     console.log('   $ cd %s && npm install', path);
     console.log();
   });
- var dir_arr=("/css,/css/less,/css/stylus,/imgs,/script,"+
+ var dir_arr=("/css,/css/lab,/css/lab/less,/css/component,/css/solution,/css/tpl,/css/lsb/stylus,/imgs,/script,"+
              "/script/activity,/script/models,/script/views,/script/views/home,/script/collections,/script/helper,/script/lib,/script/widegt,"+
 			 "/script/lib/backbone,/script/lib/jquery,/script/lib/modernizr,/script/lib/underscore,"+
 			 "/tpl,/tpl/coffeekup,/tpl/jtemplate,/tpl/mustache,/tpl/underscore,/tpl/underscore/home").split(',').join(" "+path).split(' ').slice(1);
+ 
+ console.log('please wait dir create...');
  mkdir(path, function(){
-	console.log('please wait dir create...');
 	var len=dir_arr.length;
     for(var i=0;i<len-1;i++){
 	   mkdir(dir_arr[i]);
@@ -627,13 +629,15 @@ function createApplicationAt(path) {
 		
 		// package.json
 		var json = '{' + eol;
-		json += '    "name": "application-name"' + eol;
-		json += '  , "version": "0.0.1"' + eol;
+		json += '    "name": "activity-application"' + eol;
+		json += '  , "version": "0.0.1-alpha"' + eol;
 		json += '  , "private": true' + eol;
 		json += '  , "dependencies": {' + eol;
-		json += '      "jQuery": " >=1.6.0 "' + eol;
-		json += '      "underscore": ">=0.0.1"' + eol;
-		json += '      "backbone": ">=0.0.1 "' + eol;
+		json += '     "coffee-script":">0.1.0",' + eol;
+		json += '      "less":">0.1.0",' + eol;
+		json += '      "stylus":">0.1.0",' + eol;
+		json += '      "jade":">0.1.0",' + eol;
+		json += '      "coffeekup":">0.1.0"' + eol;
 		if (program.css) json += '    , "' + program.css + '": ">= 0.0.1"' + eol;
 		if (program.template) json += '    , "' + program.template + '": ">= 0.0.1"' + eol;
 		json += '  }' + eol;

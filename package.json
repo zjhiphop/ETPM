@@ -1,6 +1,6 @@
 {
   "name"          : "etpm",
-  "version"       : "0.1.6",
+  "version"       : "0.1.7-dev",
   "description"   : "A Package Manager for ET",
   "homepage"      : "https://github.com/zjhiphop/etpm",
   "keywords"      : ["etpm", "module", "package", "optimization", "tool"],
